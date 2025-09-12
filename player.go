@@ -15,5 +15,6 @@ type Playe struct {
 func Player() {
 	fmt.Print(" Welcome to Zelda")
 	time.Sleep(4 * time.Second)
-	fmt.Print(" Choose one breed from these three")
+	fmt.Print("Choose one breed from these three")
 }
+
