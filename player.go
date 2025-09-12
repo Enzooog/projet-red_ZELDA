@@ -1,14 +1,10 @@
 package player
 
-	
-import (
-    "fmt"
-    "time"
-)
+import "fmt" 
 
 func player() {
 	fmt.Print(" Welcome to Zelda")
-	time.Sleep(4* time.Second)
+
 	fmt.Print(" Choose one breed from these three")
 
 }
