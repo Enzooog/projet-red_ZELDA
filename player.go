@@ -6,9 +6,10 @@ import (
 )
 
 type Playe struct {
-	name     string
-	age      int
-	isRemote bool
+	Name   string
+	Level  int
+	Classe string
+	Pvmax  int
 }
 
 func Player() {
