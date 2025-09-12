@@ -17,4 +17,3 @@ func Player() {
 	time.Sleep(4 * time.Second)
 	fmt.Print("Choose one breed from these three")
 }
-
