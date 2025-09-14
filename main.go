@@ -1,9 +1,10 @@
 package main
 
 import (
-	Player "projet-red_ZELDA/player"
+	"projet-red_ZELDA/menu/player"
 )
 
 func main() {
-	Player.Player()
+	p := player.CreatePlayer()
+	player.DisplayInfo(p)
 }
