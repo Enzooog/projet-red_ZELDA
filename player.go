@@ -5,14 +5,14 @@ import (
 	"time"
 )
 
-type Playe struct {
+func Pltype Playe struct() {
 	Name   string
 	Level  int
 	Classe string
 	Pvmax  int
 }
 
-func Player() {
+ayer() {
 	fmt.Print(" Welcome to Zelda")
 	time.Sleep(4 * time.Second)
 	fmt.Print("Choose one breed from these three")
