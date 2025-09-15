@@ -1,9 +1,6 @@
 package menu
 
-import (
-	"fmt"
-	"os"
-)
+import "fmt"
 
 func Show() {
 	for {
@@ -24,15 +21,13 @@ func Show() {
 		case 2:
 			fmt.Println("Going to the blacksmith")
 		case 3:
-			fmt.Println("Showing player information")
+			merchant()
 		case 4:
-			fmt.Println("Resuming the game")
-			return
+			fmt.Println("Showing player information")
 		case 5:
-			if ConfirmExit() {
-				fmt.Println("Goodbye ")
-				os.Exit(0)
-			}
+			fmt.Println("Resuming the game")
+		case 6:
+			confirmExit()
 		default:
 			fmt.Println("Invalid choice.")
 		}
