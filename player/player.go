@@ -44,6 +44,7 @@ func CreatePlayer() Player {
 		}
 		fmt.Println("Invalid class. Please choose Warrior, Mage, or Archer.")
 	}
+
 	if classe == "Warrior" {
 		pv += 20
 	}
@@ -53,6 +54,7 @@ func CreatePlayer() Player {
 	if classe == "Archer" {
 		pv -= 20
 	}
+
 	player := Player{
 		Name:   name,
 		Level:  1,
@@ -60,6 +62,5 @@ func CreatePlayer() Player {
 		PvMax:  pv,
 	}
 	fmt.Printf("Hello %s, you are a %s.\n", player.Name, player.Classe)
-	fmt.Println("Player level:", player.Level)
 	return player
 }
