@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// Définition de la structure Player
+// Definition of the Player structure
 type Player struct {
 	Name   string
 	Level  int
@@ -14,10 +14,10 @@ type Player struct {
 	PvMax  int
 }
 
-// Liste des classes disponibles
+// List of available classes
 var validClasses = []string{"Warrior", "Mage", "Archer"}
 
-// Fonction pour vérifier si la classe est valide
+// Function to check if the class is valid
 func isValidClass(input string) bool {
 	for _, class := range validClasses {
 		if strings.EqualFold(input, class) {
@@ -27,7 +27,7 @@ func isValidClass(input string) bool {
 	return false
 }
 
-// Fonction pour créer un joueur
+// Function to create a player
 func CreatePlayer() Player {
 	var name string
 	var classe string
