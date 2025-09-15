@@ -1,6 +1,7 @@
 package menu
 
 import "fmt"
+
 func merchant() {
 	var Money int = 100
 	buySheikah(&Money)
@@ -21,7 +22,7 @@ func merchant() {
 	case 1:
 		buySheikah(&Money)
 	case 2:
-		buyStone(&Money)
+		BuyStone(&Money, &Inventory{})
 	case 3:
 		buyBird(&Money)
 	case 4:
