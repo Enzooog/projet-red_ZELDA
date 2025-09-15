@@ -4,7 +4,7 @@ import "fmt"
 
 func Show() {
 	for {
-		fmt.Println(" MENU ")
+		fmt.Println(" MENU ", )
 		fmt.Println("1. Inventory")
 		fmt.Println("2. Blacksmith")
 		fmt.Println("3. Player Information")
