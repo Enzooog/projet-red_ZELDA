@@ -1,7 +1,7 @@
 package main
 
 import (
-	"projet-red_ZELDA/menu/player"
+	"projet-red_ZELDA/player"
 )
 
 func main() {
