@@ -2,7 +2,7 @@ package menu
 
 import "fmt"
 
-func buyBird(Money *int) {
+func buyBird(Money *int,inv *Inventory) {
 	fmt.Println("1. feather jewel for 10 roupies")
 	fmt.Println("2. downy piaf tunic for 20 roupies")
 	fmt.Println("3. fluffy piaf pants for 20 roupies")
@@ -13,9 +13,10 @@ func buyBird(Money *int) {
 
 	switch choice {
 	case 1:
-		if *Money >= 10 {
+			if *Money >= 10 {
 			*Money -= 10
-			fmt.Println("You bought the  feather jewel")
+			fmt.Println("You bought the feather jewel")
+			inv.AddItem(Item{Name: "feather jewel"})
 		} else {
 			fmt.Println("Not enough money.")
 		}
@@ -23,6 +24,7 @@ func buyBird(Money *int) {
 		if *Money >= 20 {
 			*Money -= 20
 			fmt.Println("You bought the downy piaf tunic")
+			inv.AddItem(Item{Name: "downy piaf tunic"})
 		} else {
 			fmt.Println("Not enough money.")
 		}
@@ -30,12 +32,11 @@ func buyBird(Money *int) {
 		if *Money >= 20 {
 			*Money -= 20
 			fmt.Println("You bought the fluffy piaf pants")
+			inv.AddItem(Item{Name: "fluffy piaf pants"})
 		} else {
 			fmt.Println("Not enough money.")
 		}
 	default:
 		fmt.Println("Invalid choice.")
 	}
-
-	fmt.Println("Remaining money:", *Money)
 }

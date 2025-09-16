@@ -2,7 +2,7 @@ package menu
 
 import "fmt"
 
-func buySheikah(Money *int) {
+func buySheikah(Money *int , inv *Inventory) {
 	fmt.Println("1. stealth mask for 10 roupies")
 	fmt.Println("2. stealth suit for 20 roupies")
 	fmt.Println("3. stealth boots for 20 roupies")
@@ -13,29 +13,30 @@ func buySheikah(Money *int) {
 
 	switch choice {
 	case 1:
-		if *Money >= 10 {
+	if *Money >= 10 {
 			*Money -= 10
-			fmt.Println("You bought the stealth mask!")
+			fmt.Println("You bought the stealth mask")
+			inv.AddItem(Item{Name: "stealth mask"})
 		} else {
 			fmt.Println("Not enough money.")
 		}
 	case 2:
 		if *Money >= 20 {
 			*Money -= 20
-			fmt.Println("You bought the stealth suit!")
+			fmt.Println("You bought the stealth suit")
+			inv.AddItem(Item{Name: "stealth suit"})
 		} else {
 			fmt.Println("Not enough money.")
 		}
 	case 3:
 		if *Money >= 20 {
 			*Money -= 20
-			fmt.Println("You bought the stealth boots!")
+			fmt.Println("You bought the stealth boots ")
+			inv.AddItem(Item{Name: "stealth boots "})
 		} else {
 			fmt.Println("Not enough money.")
 		}
 	default:
 		fmt.Println("Invalid choice.")
 	}
-
-	fmt.Println("Remaining money:", *Money)
 }
