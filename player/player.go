@@ -66,6 +66,8 @@ func CreatePlayer() Player {
 		Level:  1,
 		Classe: classe,
 		PvMax:  pv,
+		Pv:     pv,
+		Money:  100,
 	}
 	fmt.Printf("Hello %s, you are a %s.\n", player.Name, player.Classe)
 	return player

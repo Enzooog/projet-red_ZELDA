@@ -9,4 +9,6 @@ func DisplayInfo(p Player) {
 	fmt.Println("Class:", p.Classe)
 	fmt.Println("Level:", p.Level)
 	fmt.Println("Max HP:", p.PvMax)
+	fmt.Println("Current HP:", p.Pv, "/", p.PvMax)
+	fmt.Println("Money:", p.Money)
 }
