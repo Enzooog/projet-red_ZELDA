@@ -14,6 +14,7 @@ type Player struct {
 	Level     int
 	Classe    string
 	PvMax     int
+	Pv        int
 	Money     int
 	Inventory menu.Inventory
 }
