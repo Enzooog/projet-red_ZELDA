@@ -2,7 +2,7 @@ package menu
 
 import "fmt"
 
-func buySheikah(Money *int , inv *Inventory) {
+func buySheikah(Money *int, inv *Inventory) {
 	fmt.Println("1. stealth mask for 10 roupies")
 	fmt.Println("2. stealth suit for 20 roupies")
 	fmt.Println("3. stealth boots for 20 roupies")
@@ -13,7 +13,7 @@ func buySheikah(Money *int , inv *Inventory) {
 
 	switch choice {
 	case 1:
-	if *Money >= 10 {
+		if *Money >= 10 {
 			*Money -= 10
 			fmt.Println("You bought the stealth mask")
 			inv.AddItem(Item{Name: "stealth mask"})

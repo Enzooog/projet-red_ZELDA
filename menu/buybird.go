@@ -2,7 +2,7 @@ package menu
 
 import "fmt"
 
-func buyBird(Money *int,inv *Inventory) {
+func buyBird(Money *int, inv *Inventory) {
 	fmt.Println("1. feather jewel for 10 roupies")
 	fmt.Println("2. downy piaf tunic for 20 roupies")
 	fmt.Println("3. fluffy piaf pants for 20 roupies")
@@ -13,7 +13,7 @@ func buyBird(Money *int,inv *Inventory) {
 
 	switch choice {
 	case 1:
-			if *Money >= 10 {
+		if *Money >= 10 {
 			*Money -= 10
 			fmt.Println("You bought the feather jewel")
 			inv.AddItem(Item{Name: "feather jewel", BonusType: "speed", Bonus: 5})

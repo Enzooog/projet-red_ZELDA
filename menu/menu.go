@@ -27,7 +27,7 @@ func Show() {
 		case 5:
 			fmt.Println("Resuming the game")
 		case 6:
-			confirmExit()
+			ConfirmExit()
 		default:
 			fmt.Println("Invalid choice.")
 		}
