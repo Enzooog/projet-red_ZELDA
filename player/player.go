@@ -4,20 +4,24 @@ import (
 	"fmt"
 	"strings"
 	"time"
+
+	"projet-red_ZELDA/menu"
 )
 
 // Definition of the Player structure
 type Player struct {
-	Name   string
-	Level  int
-	Classe string
-	PvMax  int
-	Pv     int
+	Name      string
+	Level     int
+	Classe    string
+	PvMax     int
+	Pv        int
+	Money     int
+	Inventory menu.Inventory
 }
 
 // Function to check if the class is valid
 func isValidClass(input string) bool {
-	var validClasses = []string{"Warrior", "Mage", "Archer"}
+	validClasses := []string{"Warrior", "Mage", "Archer"}
 	for _, class := range validClasses {
 		if strings.EqualFold(input, class) {
 			return true
@@ -30,7 +34,7 @@ func isValidClass(input string) bool {
 func CreatePlayer() Player {
 	var name string
 	var classe string
-	var pv = 100
+	pv := 100
 
 	fmt.Println("Welcome to Zelda")
 	time.Sleep(1 * time.Second)
