@@ -17,7 +17,6 @@ type Player struct {
 	Pv        int
 	Money     int
 	Inventory menu.Inventory
-	speed	 int
 }
 
 // Function to check if the class is valid
@@ -53,11 +52,9 @@ func CreatePlayer() Player {
 
 	if classe == "Warrior" {
 		pv += 20
-	}
-	if classe == "Mage" {
+	} else if classe == "Mage" {
 		pv += 0
-	}
-	if classe == "Archer" {
+	} else if classe == "Archer" {
 		pv -= 20
 	}
 
