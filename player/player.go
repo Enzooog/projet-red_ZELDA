@@ -12,6 +12,7 @@ type Player struct {
 	Level  int
 	Classe string
 	PvMax  int
+	Pv     int
 }
 
 // Function to check if the class is valid
