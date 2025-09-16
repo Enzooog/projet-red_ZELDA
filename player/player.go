@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 	"time"
-
 	"projet-red_ZELDA/menu"
 )
 
@@ -17,7 +16,7 @@ type Player struct {
 	Pv        int
 	Money     int
 	Inventory menu.Inventory
-	speed	 int
+	speed     int
 }
 
 // Function to check if the class is valid

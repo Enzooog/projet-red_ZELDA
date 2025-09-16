@@ -3,9 +3,9 @@ package menu
 import "fmt"
 
 type Item struct {
-	Name string
+	Name      string
 	BonusType string // "pv", "speed", etc.
-    Bonus     int    // valeur du bonus
+	Bonus     int    // valeur du bonus
 }
 
 type Inventory struct {
@@ -32,23 +32,23 @@ func (inv *Inventory) ShowInventory() {
 
 // Permet au joueur d'équiper un objet de l'inventaire
 func (inv *Inventory) EquipItem() *Item {
-    inv.ShowInventory()
+	inv.ShowInventory()
 
-    if len(inv.Items) == 0 {
-        fmt.Println("Aucun objet à équiper.")
-        return nil
-    }
+	if len(inv.Items) == 0 {
+		fmt.Println("Aucun objet à équiper.")
+		return nil
+	}
 
-    var choice int
-    fmt.Print("Choisissez un objet à équiper (numéro) : ")
-    fmt.Scan(&choice)
+	var choice int
+	fmt.Print("Choisissez un objet à équiper (numéro) : ")
+	fmt.Scan(&choice)
 
-    if choice >= 1 && choice <= len(inv.Items) {
-        item := &inv.Items[choice-1]
-        fmt.Printf("Vous avez équipé %s.\n", item.Name)
-        return item
-    } else {
-        fmt.Println("Choix invalide.")
-        return nil
-    }
+	if choice >= 1 && choice <= len(inv.Items) {
+		item := &inv.Items[choice-1]
+		fmt.Printf("Vous avez équipé %s.\n", item.Name)
+		return item
+	} else {
+		fmt.Println("Choix invalide.")
+		return nil
+	}
 }
