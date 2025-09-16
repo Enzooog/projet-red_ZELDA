@@ -6,16 +6,18 @@ import (
 )
 
 func ConfirmExit() bool {
-	var confirmation int
-	fmt.Println("Are you sure you want to leave?")
-	fmt.Println("1. Yes")
-	fmt.Println("2. No")
-	fmt.Print("Choice: ")
-	fmt.Scan(&confirmation)
-	if confirmation == 1 {
-		fmt.Println("Goodbye ")
+	fmt.Println("\nÊtes-vous sûr de vouloir quitter ?")
+	fmt.Println("1. Oui")
+	fmt.Println("2. Non")
+	fmt.Print("Choix : ")
+
+	var choice int
+	fmt.Scan(&choice)
+
+	if choice == 1 {
+		fmt.Println("Au revoir et merci d'avoir joué !")
 		os.Exit(0)
-	} else {
+		return true
 	}
 	return false
 }

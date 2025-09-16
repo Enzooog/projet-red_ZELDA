@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 	"time"
-	"projet-red_ZELDA/menu"
+
+	"projet-red_ZELDA/types"
 )
 
-// Definition of the Player structure
 type Player struct {
 	Name      string
 	Level     int
@@ -15,11 +15,46 @@ type Player struct {
 	PvMax     int
 	Pv        int
 	Money     int
-	Inventory menu.Inventory
-	speed     int
+	Speed     int
+	SwordDmg  int
+	Inventory types.Inventory
 }
 
-// Function to check if the class is valid
+func CreatePlayer() Player {
+	var name, classe string
+	pv, speed, swordDmg := 100, 10, 15
+
+	fmt.Println("Bienvenue dans Zelda")
+	time.Sleep(1 * time.Second)
+	fmt.Print("Entrez votre nom : ")
+	fmt.Scan(&name)
+
+	for {
+		fmt.Print("Choisissez votre classe (Warrior, Mage, Archer) : ")
+		fmt.Scan(&classe)
+		if isValidClass(classe) {
+			break
+		}
+		fmt.Println("Classe invalide.")
+	}
+
+	if classe == "Warrior" {
+		pv += 20
+		swordDmg += 5
+	} else if classe == "Archer" {
+		speed += 5
+		pv -= 10
+	} else if classe == "Mage" {
+		speed += 3
+	}
+
+	return Player{
+		Name: name, Level: 1, Classe: classe, PvMax: pv, Pv: pv,
+		Money: 100, Speed: speed, SwordDmg: swordDmg,
+		Inventory: types.Inventory{Items: []types.Item{}, MaxSize: 5},
+	}
+}
+
 func isValidClass(input string) bool {
 	validClasses := []string{"Warrior", "Mage", "Archer"}
 	for _, class := range validClasses {
@@ -28,46 +63,4 @@ func isValidClass(input string) bool {
 		}
 	}
 	return false
-}
-
-// Function to create a player
-func CreatePlayer() Player {
-	var name string
-	var classe string
-	pv := 100
-
-	fmt.Println("Welcome to Zelda")
-	time.Sleep(1 * time.Second)
-	fmt.Print("Enter your name: ")
-	fmt.Scan(&name)
-
-	for {
-		fmt.Print("Choose your class (Warrior, Mage, Archer): ")
-		fmt.Scan(&classe)
-		if isValidClass(classe) {
-			break
-		}
-		fmt.Println("Invalid class. Please choose Warrior, Mage, or Archer.")
-	}
-
-	if classe == "Warrior" {
-		pv += 20
-	}
-	if classe == "Mage" {
-		pv += 0
-	}
-	if classe == "Archer" {
-		pv -= 20
-	}
-
-	player := Player{
-		Name:   name,
-		Level:  1,
-		Classe: classe,
-		PvMax:  pv,
-		Pv:     pv,
-		Money:  100,
-	}
-	fmt.Printf("Hello %s, you are a %s.\n", player.Name, player.Classe)
-	return player
 }

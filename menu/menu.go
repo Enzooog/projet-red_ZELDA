@@ -1,35 +1,42 @@
 package menu
 
-import "fmt"
+import (
+	"fmt"
 
-func Show() {
+	"projet-red_ZELDA/player"
+)
+
+func ShowMenu(p *player.Player) {
 	for {
-		fmt.Println(" MENU ")
-		fmt.Println("1. Inventory")
-		fmt.Println("2. Blacksmith")
-		fmt.Println("3. Player Information")
-		fmt.Println("4. Resume the Game")
-		fmt.Println("5. Exit the Game")
+		fmt.Println("\n--- MENU ---")
+		fmt.Println("1. Inventaire")
+		fmt.Println("2. Forgeron")
+		fmt.Println("3. Marchand")
+		fmt.Println("4. Stats du joueur")
+		fmt.Println("5. Reprendre le jeu")
+		fmt.Println("6. Quitter")
+		fmt.Print("Choix : ")
 
-		var key int
-		fmt.Print("Choice: ")
-		fmt.Scan(&key)
+		var choice int
+		fmt.Scan(&choice)
 
-		switch key {
+		switch choice {
 		case 1:
-			fmt.Println("Opening inventory")
+			p.Inventory.ShowInventory()
 		case 2:
-			fmt.Println("Going to the blacksmith")
+			Blacksmith(p)
 		case 3:
-			Merchant()
+			Merchant(p)
 		case 4:
-			fmt.Println("Showing player information")
+			player.DisplayInfo(*p)
 		case 5:
-			fmt.Println("Resuming the game")
+			return
 		case 6:
-			ConfirmExit()
+			if ConfirmExit() {
+				return
+			}
 		default:
-			fmt.Println("Invalid choice.")
+			fmt.Println("Choix invalide.")
 		}
 	}
 }

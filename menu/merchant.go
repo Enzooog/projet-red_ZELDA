@@ -1,34 +1,54 @@
 package menu
 
-import "fmt"
+import (
+	"fmt"
 
-func Merchant() {
-	var Money int
-	fmt.Println("Hello, I'm Faras. Welcome to my shop. What would you like to buy? ")
-	fmt.Println("your roupie = ", Money)
-	fmt.Println("1. outfit sheikah for 50 roupies")
-	fmt.Println("2. stone outfit for 50 roupies")
-	fmt.Println("3. bird outfit for 50 roupies")
-	fmt.Println("4. green potion (recover from life ) for 10 roupies")
-	fmt.Println("5. red potion (throw poison)for 10 roupies")
-	fmt.Println("6. bag for 20 roupies")
+	"projet-red_ZELDA/player"
+	"projet-red_ZELDA/types"
+)
 
-	var key2 int
-	fmt.Print("Choice: ")
-	fmt.Scan(&key2)
+func Merchant(p *player.Player) {
+	fmt.Println("\n--- MARCHAND FARAS ---")
+	fmt.Printf("Bonjour ! Vos roupies : %d\n", p.Money)
+	fmt.Println("1. Armure Sheikah (50 roupies) - Furtivité")
+	fmt.Println("2. Armure Pierre (50 roupies) - +20 PV")
+	fmt.Println("3. Armure Oiseau (50 roupies) - +10 Vitesse")
+	fmt.Println("4. Potion verte (15 roupies) - Soigne 30 PV")
+	fmt.Println("5. Potion rouge (20 roupies) - Poison ennemi")
+	fmt.Println("6. Sac (40 roupies) - +5 slots inventaire")
+	fmt.Println("7. Retour")
+	fmt.Print("Choix : ")
 
-	switch key2 {
+	var choice int
+	fmt.Scan(&choice)
+
+	switch choice {
 	case 1:
-		buySheikah(&Money, &Inventory{})
+		buySheikah(p)
 	case 2:
-		BuyStone(&Money, &Inventory{})
+		buyStone(p)
 	case 3:
-		buyBird(&Money, &Inventory{})
+		buyBird(p)
 	case 4:
-		// acheter la potion verte
+		buyGreenPotion(p)
 	case 5:
-		// acheter la potion rouge
+		buyRedPotion(p)
 	case 6:
-		// acheter the bag
+		buyBag(p)
+	case 7:
+		return
+	default:
+		fmt.Println("Choix invalide.")
+	}
+}
+
+func buyGreenPotion(p *player.Player) {
+	if p.Money >= 15 {
+		item := types.Item{Name: "Potion verte", Type: "potion", BonusType: "heal", Bonus: 30}
+		if p.Inventory.AddItem(item) {
+			p.Money -= 15
+		}
+	} else {
+		fmt.Println("Pas assez d'argent.")
 	}
 }
