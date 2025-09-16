@@ -2,9 +2,8 @@ package menu
 
 import "fmt"
 
-func merchant() {
-	var Money int = 100
-	buySheikah(&Money)
+func Merchant() {
+	var Money int
 	fmt.Println("Hello, I'm Faras. Welcome to my shop. What would you like to buy? ")
 	fmt.Println("your roupie = ", Money)
 	fmt.Println("1. outfit sheikah for 50 roupies")
@@ -20,11 +19,11 @@ func merchant() {
 
 	switch key2 {
 	case 1:
-		buySheikah(&Money)
+		buySheikah(&Money, &Inventory{})
 	case 2:
 		BuyStone(&Money, &Inventory{})
 	case 3:
-		buyBird(&Money)
+		buyBird(&Money, &Inventory{})
 	case 4:
 		// acheter la potion verte
 	case 5:

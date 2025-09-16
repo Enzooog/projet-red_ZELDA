@@ -11,7 +11,6 @@ func main() {
 
 	p.Pv = 0
 	player.IsDead(&p)
-
 	player.TakePot(&p)
 
 	// Achat d’un objet avec l'argent du joueur

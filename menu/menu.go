@@ -21,7 +21,7 @@ func Show() {
 		case 2:
 			fmt.Println("Going to the blacksmith")
 		case 3:
-			merchant()
+			Merchant()
 		case 4:
 			fmt.Println("Showing player information")
 		case 5:
