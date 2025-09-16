@@ -41,10 +41,5 @@ func main() {
 		default:
 			fmt.Println("Choix invalide.")
 		}
-
-		// Le joueur peut maintenant équiper un objet acheté
-		p.Inventory.EquipItem()
-
-		player.DisplayInfo(p)
 	}
 }
