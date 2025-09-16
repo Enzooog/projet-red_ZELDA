@@ -17,6 +17,7 @@ type Player struct {
 	Pv        int
 	Money     int
 	Inventory menu.Inventory
+	speed	 int
 }
 
 // Function to check if the class is valid

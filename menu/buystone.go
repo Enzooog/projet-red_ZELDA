@@ -16,7 +16,7 @@ func BuyStone(Money *int, inv *Inventory) {
 		if *Money >= 10 {
 			*Money -= 10
 			fmt.Println("You bought the stone helmet")
-			inv.AddItem(Item{Name: "Stone Helmet"})
+			inv.AddItem(Item{Name: "Stone Helmet", BonusType: "pv", Bonus: 5})
 		} else {
 			fmt.Println("Not enough money.")
 		}
@@ -24,7 +24,7 @@ func BuyStone(Money *int, inv *Inventory) {
 		if *Money >= 20 {
 			*Money -= 20
 			fmt.Println("You bought the stone armor")
-			inv.AddItem(Item{Name: "Stone Armor"})
+			inv.AddItem(Item{Name: "Stone Armor", BonusType: "pv", Bonus: 10})
 		} else {
 			fmt.Println("Not enough money.")
 		}
@@ -32,7 +32,7 @@ func BuyStone(Money *int, inv *Inventory) {
 		if *Money >= 20 {
 			*Money -= 20
 			fmt.Println("You bought the stone boots")
-			inv.AddItem(Item{Name: "Stone Boots"})
+			inv.AddItem(Item{Name: "Stone Boots", BonusType: "pv", Bonus: 10})
 		} else {
 			fmt.Println("Not enough money.")
 		}

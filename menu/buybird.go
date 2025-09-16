@@ -16,7 +16,7 @@ func buyBird(Money *int,inv *Inventory) {
 			if *Money >= 10 {
 			*Money -= 10
 			fmt.Println("You bought the feather jewel")
-			inv.AddItem(Item{Name: "feather jewel"})
+			inv.AddItem(Item{Name: "feather jewel", BonusType: "speed", Bonus: 5})
 		} else {
 			fmt.Println("Not enough money.")
 		}
@@ -24,7 +24,7 @@ func buyBird(Money *int,inv *Inventory) {
 		if *Money >= 20 {
 			*Money -= 20
 			fmt.Println("You bought the downy piaf tunic")
-			inv.AddItem(Item{Name: "downy piaf tunic"})
+			inv.AddItem(Item{Name: "downy piaf tunic", BonusType: "speed", Bonus: 10})
 		} else {
 			fmt.Println("Not enough money.")
 		}
@@ -32,7 +32,7 @@ func buyBird(Money *int,inv *Inventory) {
 		if *Money >= 20 {
 			*Money -= 20
 			fmt.Println("You bought the fluffy piaf pants")
-			inv.AddItem(Item{Name: "fluffy piaf pants"})
+			inv.AddItem(Item{Name: "fluffy piaf pants", BonusType: "speed", Bonus: 10})
 		} else {
 			fmt.Println("Not enough money.")
 		}
