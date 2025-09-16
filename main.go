@@ -18,4 +18,6 @@ func main() {
 
 	// Le joueur peut maintenant équiper un objet acheté
 	p.Inventory.EquipItem()
+
+	player.DisplayInfo(p)
 }
