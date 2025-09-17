@@ -7,11 +7,11 @@ import (
 )
 
 func PlayerTurn(p *player.Player, e *Enemy) {
-	fmt.Println("\n--- Votre tour ---")
-	fmt.Println("1. Attaque à l'épée")
-	fmt.Println("2. Sort magique")
-	fmt.Println("3. Utiliser une potion")
-	fmt.Print("Choix : ")
+	fmt.Println("\n--- your turn ---")
+	fmt.Println("1. sword stroke ")
+	fmt.Println("2. magic spell ")
+	fmt.Println("3. use a potion ")
+	fmt.Print("Choice : ")
 
 	var choice int
 	fmt.Scan(&choice)
@@ -23,7 +23,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		if e.Pv < 0 {
 			e.Pv = 0
 		}
-		fmt.Printf("Vous attaquez avec l'épée ! %d dégâts. PV ennemi : %d/%d\n",
+		fmt.Printf("You attack with the sword   %d damages. PV enemy : %d/%d\n",
 			damage, e.Pv, e.PvMax)
 	case 2:
 		damage := p.SwordDmg + 10
@@ -35,7 +35,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		if p.Pv < 0 {
 			p.Pv = 0
 		}
-		fmt.Printf("Sort lancé ! %d dégâts à l'ennemi, 5 dégâts à vous-même.\n", damage)
+		fmt.Printf("spell cast! %d damage to the enemy, 5 damage to yourself.\n", damage)
 		fmt.Printf("PV ennemi : %d/%d | Vos PV : %d/%d\n", e.Pv, e.PvMax, p.Pv, p.PvMax)
 	case 3:
 		player.UsePotion(p)
@@ -47,5 +47,5 @@ func EnemyAttack(p *player.Player, e *Enemy) {
 	if p.Pv < 0 {
 		p.Pv = 0
 	}
-	fmt.Printf("%s vous attaque ! %d dégâts. Vos PV : %d/%d\n", e.Name, e.Damage, p.Pv, p.PvMax)
+	fmt.Printf("%s attacks you. %d damage. Your PV : %d/%d\n", e.Name, e.Damage, p.Pv, p.PvMax)
 }

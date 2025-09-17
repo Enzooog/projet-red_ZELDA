@@ -17,9 +17,9 @@ func main() {
 	for {
 		fmt.Println("\n=== ZELDA GAME ===")
 		fmt.Println("1. Menu")
-		fmt.Println("2. Quête principale (battre l'ennemi)")
-		fmt.Println("3. Battre le boss")
-		fmt.Print("Choix : ")
+		fmt.Println("2.  Main quest")
+		fmt.Println("3. Defeat the boss")
+		fmt.Print("Choice : ")
 
 		var choice int
 		fmt.Scan(&choice)
@@ -32,7 +32,7 @@ func main() {
 		case 3:
 			boss.CreateBoss(b, &p, e)
 		default:
-			fmt.Println("Choix invalide.")
+			fmt.Println("invalid choice.")
 		}
 	}
 }

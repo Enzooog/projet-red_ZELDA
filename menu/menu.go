@@ -2,19 +2,18 @@ package menu
 
 import (
 	"fmt"
-
 	"projet-red_ZELDA/player"
 )
 
 func ShowMenu(p *player.Player) {
 	for {
 		fmt.Println("\n--- MENU ---")
-		fmt.Println("1. Inventaire")
-		fmt.Println("2. Forgeron")
-		fmt.Println("3. Marchand")
-		fmt.Println("4. Stats du joueur")
-		fmt.Println("5. Reprendre le jeu")
-		fmt.Println("6. Quitter")
+		fmt.Println("1. Inventory")
+		fmt.Println("2. Blacksmith")
+		fmt.Println("3. merchant")
+		fmt.Println("4. player statistics")
+		fmt.Println("5. resume the game ")
+		fmt.Println("6. exit")
 		fmt.Print("Choix : ")
 
 		var choice int
@@ -22,7 +21,7 @@ func ShowMenu(p *player.Player) {
 
 		switch choice {
 		case 1:
-			p.Inventory.ShowInventory()
+			ShowPlayerInventory(&p.Inventory)
 		case 2:
 			Blacksmith(p)
 		case 3:
@@ -36,7 +35,7 @@ func ShowMenu(p *player.Player) {
 				return
 			}
 		default:
-			fmt.Println("Choix invalide.")
+			fmt.Println("invalid choice")
 		}
 	}
 }
