@@ -4,8 +4,8 @@ import "fmt"
 
 type Item struct {
 	Name      string
-	Type      string 
-	BonusType string 
+	Type      string
+	BonusType string
 	Bonus     int
 }
 
