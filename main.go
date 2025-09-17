@@ -12,7 +12,8 @@ import (
 func main() {
 	p := player.CreatePlayer()
 	b := &boss.Boss{}
-	c := &combat.Enemy{}
+	e := &combat.Enemy{}
+	
 	for {
 		fmt.Println("\n=== ZELDA GAME ===")
 		fmt.Println("1. Menu")
@@ -29,7 +30,7 @@ func main() {
 		case 2:
 			combat.StartBattle(&p)
 		case 3:
-			boss.CreateBoss(b, &p, c)
+			boss.CreateBoss(b, &p, e)
 		default:
 			fmt.Println("Choix invalide.")
 		}
