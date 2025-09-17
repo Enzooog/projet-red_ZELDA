@@ -1,8 +1,6 @@
 package player
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func UsePotion(p *Player) {
 	potions := []int{}
@@ -13,33 +11,32 @@ func UsePotion(p *Player) {
 	}
 
 	if len(potions) == 0 {
-		fmt.Println("Aucune potion disponible !")
+		fmt.Println("No potions available !")
 		return
 	}
 
-	fmt.Println("Potions disponibles :")
+	fmt.Println("Available potions :")
 	for i, potionIndex := range potions {
 		item := p.Inventory.Items[potionIndex]
-		fmt.Printf("%d. %s\n", i+1, item.Name)
+		fmt.Printf("%d. %s x%d\n", i+1, item.Name, item.Quantity)
 	}
 
 	var choice int
-	fmt.Print("Choisir une potion : ")
 	fmt.Scan(&choice)
 
 	if choice >= 1 && choice <= len(potions) {
 		potionIndex := potions[choice-1]
-		item := p.Inventory.Items[potionIndex]
-
-		if item.BonusType == "heal" {
-			heal := item.Bonus
-			p.Pv += heal
-			if p.Pv > p.PvMax {
-				p.Pv = p.PvMax
-			}
-			fmt.Printf("Vous récupérez %d PV ! PV actuels : %d/%d\n", heal, p.Pv, p.PvMax)
+		item := &p.Inventory.Items[potionIndex]
+		
+		p.Pv += item.Bonus
+		if p.Pv > p.PvMax {
+			p.Pv = p.PvMax
 		}
-
-		p.Inventory.RemoveItem(potionIndex)
+		fmt.Printf("You recover %d PV !\n", item.Bonus)
+		
+		item.Quantity--
+		if item.Quantity <= 0 {
+			p.Inventory.RemoveItem(potionIndex)
+		}
 	}
 }

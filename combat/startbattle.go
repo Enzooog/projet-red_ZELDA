@@ -16,7 +16,7 @@ type Enemy struct {
 
 func StartBattle(p *player.Player) {
 	enemy := &Enemy{Name: "Gobelin", Pv: 40, PvMax: 40, Speed: 8, Damage: 12}
-	fmt.Printf("Un %s apparaît !\n", enemy.Name)
+	fmt.Printf("one %s appears !\n", enemy.Name)
 
 	for enemy.Pv > 0 && p.Pv > 0 {
 		if p.Speed >= enemy.Speed {
@@ -33,7 +33,7 @@ func StartBattle(p *player.Player) {
 	}
 
 	if enemy.Pv <= 0 {
-		fmt.Println("Victoire ! Vous gagnez 30 roupies !")
+		fmt.Println("Victory! You win 30 roupies !")
 		p.Money += 30
 	} else {
 		player.IsDead(p)

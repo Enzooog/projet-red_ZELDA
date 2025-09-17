@@ -24,18 +24,18 @@ func CreatePlayer() Player {
 	var name, classe string
 	pv, speed, swordDmg := 100, 10, 15
 
-	fmt.Println("Bienvenue dans Zelda")
+	fmt.Println("Welcome to Zelda")
 	time.Sleep(1 * time.Second)
-	fmt.Print("Entrez votre nom : ")
+	fmt.Print("Enter your name : ")
 	fmt.Scan(&name)
 
 	for {
-		fmt.Print("Choisissez votre classe (Warrior, Mage, Archer) : ")
+		fmt.Print("Choose your class (Warrior, Mage, Archer) : ")
 		fmt.Scan(&classe)
 		if isValidClass(classe) {
 			break
 		}
-		fmt.Println("Classe invalide.")
+		fmt.Println("Invalid class.")
 	}
 
 	classeLower := strings.ToLower(classe)

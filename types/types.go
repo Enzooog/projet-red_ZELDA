@@ -8,6 +8,7 @@ type Item struct {
 	BonusType string 
 	Bonus     int
 	IsEquipped bool
+	Quantity  int
 }
 
 type Inventory struct {
@@ -16,33 +17,25 @@ type Inventory struct {
 }
 
 func (inv *Inventory) AddItem(item Item) bool {
+	item.IsEquipped = false
+	item.Quantity = 1
+	
+	// Stack les potions
+	if item.Type == "potion" {
+		for i := range inv.Items {
+			if inv.Items[i].Name == item.Name {
+				inv.Items[i].Quantity++
+				fmt.Printf("%s x%d\n", item.Name, inv.Items[i].Quantity)
+				return true
+			}
+		}
+	}
+	
 	if len(inv.Items) >= inv.MaxSize {
-		fmt.Println("Inventaire plein !")
+		fmt.Println("Full inventory !")
 		return false
 	}
-	item.IsEquipped = false
 	inv.Items = append(inv.Items, item)
-	fmt.Printf("%s ajouté à l'inventaire.\n", item.Name)
+	fmt.Printf("%s added.\n", item.Name)
 	return true
-}
-
-func (inv *Inventory) ShowInventory() {
-	if len(inv.Items) == 0 {
-		fmt.Println("Inventaire vide.")
-		return
-	}
-	fmt.Printf("Inventaire (%d/%d) :\n", len(inv.Items), inv.MaxSize)
-	for i, item := range inv.Items {
-		bonus := ""
-		if item.Bonus > 0 {
-			bonus = fmt.Sprintf(" (+%d %s)", item.Bonus, item.BonusType)
-		}
-		fmt.Printf("%d. %s%s\n", i+1, item.Name, bonus)
-	}
-}
-
-func (inv *Inventory) RemoveItem(index int) {
-	if index >= 0 && index < len(inv.Items) {
-		inv.Items = append(inv.Items[:index], inv.Items[index+1:]...)
-	}
 }

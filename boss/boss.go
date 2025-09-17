@@ -20,7 +20,7 @@ func CreateBoss(b *Boss, p *player.Player, e *combat.Enemy) {
 	*b = Boss{Name: "Gannon", Pv: 200, PvMax: 200, Speed: 8, Damage: 20}
 	*e = combat.Enemy{Name: b.Name, Pv: b.Pv, PvMax: b.PvMax, Speed: b.Speed, Damage: b.Damage}
 	
-	fmt.Printf("Un %s apparaît !\n", b.Name)
+	fmt.Printf(" %s appears !\n", b.Name)
 
 	for e.Pv > 0 && p.Pv > 0 {
 		if p.Speed >= b.Speed {
