@@ -23,8 +23,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		if e.Pv < 0 {
 			e.Pv = 0
 		}
-		fmt.Printf("You attack with the sword   %d damages. PV enemy : %d/%d\n",
-			damage, e.Pv, e.PvMax)
+		fmt.Printf("You attack with the sword   %d damages. PV enemy : %d/%d\n", damage, e.Pv, e.PvMax)
 	case 2:
 		damage := p.SwordDmg + 10
 		e.Pv -= damage

@@ -27,13 +27,13 @@ func UsePotion(p *Player) {
 	if choice >= 1 && choice <= len(potions) {
 		potionIndex := potions[choice-1]
 		item := &p.Inventory.Items[potionIndex]
-		
+
 		p.Pv += item.Bonus
 		if p.Pv > p.PvMax {
 			p.Pv = p.PvMax
 		}
 		fmt.Printf("You recover %d PV !\n", item.Bonus)
-		
+
 		item.Quantity--
 		if item.Quantity <= 0 {
 			p.Inventory.RemoveItem(potionIndex)
