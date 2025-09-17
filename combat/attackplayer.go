@@ -6,11 +6,36 @@ import (
 	"projet-red_ZELDA/player"
 )
 
-func AttackPlayer(p *player.Player, damage int, e *Enemy) {
-	p.Pv -= damage
-	if p.Pv < 0 {
-		p.Pv = 0
-		AttackEnemy(e, 15, p)
+type Enemy struct {
+	Name   string
+	Pv     int
+	PvMax  int
+	Speed  int
+	Damage int
+}
+
+func StartBattle(p *player.Player) {
+	enemy := &Enemy{Name: "Gobelin", Pv: 40, PvMax: 40, Speed: 8, Damage: 12}
+	fmt.Printf("Un %s apparaît !\n", enemy.Name)
+
+	for enemy.Pv > 0 && p.Pv > 0 {
+		if p.Speed >= enemy.Speed {
+			PlayerTurn(p, enemy)
+			if enemy.Pv > 0 {
+				EnemyAttack(p, enemy)
+			}
+		} else {
+			EnemyAttack(p, enemy)
+			if p.Pv > 0 {
+				PlayerTurn(p, enemy)
+			}
+		}
 	}
-	fmt.Printf("%s t'attaque et t'inflige %d dégâts ! Tes PV restants : %d\n", e.Name, damage, p.Pv)
+
+	if enemy.Pv <= 0 {
+		fmt.Println("Victoire ! Vous gagnez 50 roupies !")
+		p.Money += 50
+	} else {
+		player.IsDead(p)
+	}
 }

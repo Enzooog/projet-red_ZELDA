@@ -5,10 +5,9 @@ import (
 	"strings"
 	"time"
 
-	"projet-red_ZELDA/menu"
+	"projet-red_ZELDA/types"
 )
 
-// Definition of the Player structure
 type Player struct {
 	Name      string
 	Level     int
@@ -16,39 +15,27 @@ type Player struct {
 	PvMax     int
 	Pv        int
 	Money     int
-	Inventory menu.Inventory
-	speed     int
+	Speed     int
+	SwordDmg  int
+	Inventory types.Inventory
 }
 
-// Function to check if the class is valid
-func isValidClass(input string) bool {
-	validClasses := []string{"Warrior", "Mage", "Archer"}
-	for _, class := range validClasses {
-		if strings.EqualFold(input, class) {
-			return true
-		}
-	}
-	return false
-}
-
-// Function to create a player
 func CreatePlayer() Player {
-	var name string
-	var classe string
-	pv := 100
+	var name, classe string
+	pv, speed, swordDmg := 100, 10, 15
 
-	fmt.Println("Welcome to Zelda")
+	fmt.Println("Bienvenue dans Zelda")
 	time.Sleep(1 * time.Second)
-	fmt.Print("Enter your name: ")
+	fmt.Print("Entrez votre nom : ")
 	fmt.Scan(&name)
 
 	for {
-		fmt.Print("Choose your class (Warrior, Mage, Archer): ")
+		fmt.Print("Choisissez votre classe (Warrior, Mage, Archer) : ")
 		fmt.Scan(&classe)
 		if isValidClass(classe) {
 			break
 		}
-		fmt.Println("Invalid class. Please choose Warrior, Mage, or Archer.")
+		fmt.Println("Classe invalide.")
 	}
 
 	classeLower := strings.ToLower(classe)
@@ -61,14 +48,19 @@ func CreatePlayer() Player {
 		pv -= 20
 	}
 
-	player := Player{
-		Name:   name,
-		Level:  1,
-		Classe: strings.Title(classeLower),
-		PvMax:  pv,
-		Pv:     pv,
-		Money:  100,
+	return Player{
+		Name: name, Level: 1, Classe: classe, PvMax: pv, Pv: pv,
+		Money: 100, Speed: speed, SwordDmg: swordDmg,
+		Inventory: types.Inventory{Items: []types.Item{}, MaxSize: 5},
 	}
-	fmt.Printf("Hello %s, you are a %s.\n", player.Name, player.Classe)
-	return player
+}
+
+func isValidClass(input string) bool {
+	validClasses := []string{"Warrior", "Mage", "Archer"}
+	for _, class := range validClasses {
+		if strings.EqualFold(input, class) {
+			return true
+		}
+	}
+	return false
 }
