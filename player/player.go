@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"time"
+
 	"projet-red_ZELDA/menu"
 )
 
@@ -16,10 +17,7 @@ type Player struct {
 	Pv        int
 	Money     int
 	Inventory menu.Inventory
-<<<<<<< HEAD
-=======
 	speed     int
->>>>>>> db6244454a8676be1e1bf67b100bc0f9382c73c4
 }
 
 // Function to check if the class is valid
@@ -53,18 +51,20 @@ func CreatePlayer() Player {
 		fmt.Println("Invalid class. Please choose Warrior, Mage, or Archer.")
 	}
 
-	if classe == "Warrior" {
+	classeLower := strings.ToLower(classe)
+	switch classeLower {
+	case "warrior":
 		pv += 20
-	} else if classe == "Mage" {
+	case "mage":
 		pv += 0
-	} else if classe == "Archer" {
+	case "archer":
 		pv -= 20
 	}
 
 	player := Player{
 		Name:   name,
 		Level:  1,
-		Classe: classe,
+		Classe: strings.Title(classeLower),
 		PvMax:  pv,
 		Pv:     pv,
 		Money:  100,
