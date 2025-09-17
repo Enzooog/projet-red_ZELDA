@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"projet-red_ZELDA/boss"
 	"projet-red_ZELDA/combat"
 	"projet-red_ZELDA/menu"
 	"projet-red_ZELDA/player"
@@ -10,6 +11,9 @@ import (
 
 func main() {
 	p := player.CreatePlayer()
+	b := boss.CreateBoss()
+
+	b.Attack(&p)
 
 	for {
 		fmt.Println("\n=== ZELDA GAME ===")
