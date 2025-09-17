@@ -13,7 +13,14 @@ type Monster struct {
 	Pv          int
 }
 
-
+func CreateBoss() Monster {
+	return Monster{
+		Name:        "ezz",
+		AttackPower: 25,
+		PvMax:       200,
+		Pv:          200,
+	}
+}
 
 func (m *Monster) Attack(p *player.Player) {
 	fmt.Printf("%s attacks %s for %d damage!\n", m.Name, p.Name, m.AttackPower)

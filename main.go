@@ -11,6 +11,9 @@ import (
 
 func main() {
 	p := player.CreatePlayer()
+	b := boss.CreateBoss()
+
+	b.Attack(&p)
 
 	for {
 		fmt.Println("\n=== ZELDA GAME ===")
