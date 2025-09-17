@@ -2,7 +2,6 @@ package menu
 
 import (
 	"fmt"
-
 	"projet-red_ZELDA/player"
 )
 
@@ -22,7 +21,7 @@ func ShowMenu(p *player.Player) {
 
 		switch choice {
 		case 1:
-			p.Inventory.ShowInventory()
+			ShowPlayerInventory(&p.Inventory)
 		case 2:
 			Blacksmith(p)
 		case 3:

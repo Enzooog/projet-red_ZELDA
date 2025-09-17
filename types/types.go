@@ -7,6 +7,7 @@ type Item struct {
 	Type      string 
 	BonusType string 
 	Bonus     int
+	IsEquipped bool
 }
 
 type Inventory struct {
@@ -19,6 +20,7 @@ func (inv *Inventory) AddItem(item Item) bool {
 		fmt.Println("Inventaire plein !")
 		return false
 	}
+	item.IsEquipped = false
 	inv.Items = append(inv.Items, item)
 	fmt.Printf("%s ajouté à l'inventaire.\n", item.Name)
 	return true

@@ -2,6 +2,8 @@ package boss
 
 import (
 	"fmt"
+	"os"
+	"time"
 	"projet-red_ZELDA/player"
 	"projet-red_ZELDA/combat"
 )
@@ -35,8 +37,9 @@ func CreateBoss(b *Boss, p *player.Player, e *combat.Enemy) {
 	}
 
 	if e.Pv <= 0 {
-		fmt.Println("Victoire ! Vous gagnez 50 roupies !")
-		p.Money += 50
+		fmt.Println("WELL DONE, YOU BEAT THE BOSS !")
+		time.Sleep(3 * time.Second)
+		os.Exit(0)
 	} else {
 		player.IsDead(p)
 	}
