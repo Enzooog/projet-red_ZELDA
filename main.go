@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"projet-red_ZELDA/boss"
 	"projet-red_ZELDA/combat"
 	"projet-red_ZELDA/menu"
 	"projet-red_ZELDA/player"
@@ -15,6 +16,7 @@ func main() {
 		fmt.Println("\n=== ZELDA GAME ===")
 		fmt.Println("1. Menu")
 		fmt.Println("2. Quête principale (battre l'ennemi)")
+		fmt.Println("3. Battre le boss")
 		fmt.Print("Choix : ")
 
 		var choice int
@@ -25,6 +27,8 @@ func main() {
 			menu.ShowMenu(&p)
 		case 2:
 			combat.StartBattle(&p)
+		case 3:
+			boss.CreateBoss(&M)
 		default:
 			fmt.Println("Choix invalide.")
 		}

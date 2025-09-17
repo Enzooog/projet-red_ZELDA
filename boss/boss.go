@@ -2,6 +2,7 @@ package boss
 
 import (
 	"fmt"
+
 	"projet-red_ZELDA/player"
 )
 
@@ -11,6 +12,8 @@ type Monster struct {
 	PvMax       int
 	Pv          int
 }
+
+
 
 func (m *Monster) Attack(p *player.Player) {
 	fmt.Printf("%s attacks %s for %d damage!\n", m.Name, p.Name, m.AttackPower)

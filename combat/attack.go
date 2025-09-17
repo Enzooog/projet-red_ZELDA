@@ -47,6 +47,5 @@ func EnemyAttack(p *player.Player, e *Enemy) {
 	if p.Pv < 0 {
 		p.Pv = 0
 	}
-	fmt.Printf("%s vous attaque ! %d dégâts. Vos PV : %d/%d\n",
-		e.Name, e.Damage, p.Pv, p.PvMax)
+	fmt.Printf("%s vous attaque ! %d dégâts. Vos PV : %d/%d\n", e.Name, e.Damage, p.Pv, p.PvMax)
 }

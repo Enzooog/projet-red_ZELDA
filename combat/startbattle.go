@@ -34,7 +34,7 @@ func StartBattle(p *player.Player) {
 
 	if enemy.Pv <= 0 {
 		fmt.Println("Victoire ! Vous gagnez 50 roupies !")
-		p.Money += 50
+		p.Money += 30
 	} else {
 		player.IsDead(p)
 	}
