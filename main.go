@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
-
 	"projet-red_ZELDA/boss"
 	"projet-red_ZELDA/combat"
 	"projet-red_ZELDA/menu"
 	"projet-red_ZELDA/player"
 )
+func clear() {
+	fmt.Print("\033[H\033[2J")
+}
 
 func main() {
 	// Create the player
@@ -28,12 +30,18 @@ func main() {
 
 		switch choice {
 		case 1:
+			clear()
 			menu.ShowMenu(&p) // Show the menu
+			
 		case 2:
+			clear()
 			combat.StartBattle(&p) // battle against an enemy
+			
 		case 3:
+			clear()
 			boss.CreateBoss(b, &p, e) // Fight the boss
 		default:
+			clear()
 			fmt.Println("Invalid choice.")
 		}
 	}
