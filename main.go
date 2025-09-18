@@ -7,6 +7,7 @@ import (
 	"projet-red_ZELDA/menu"
 	"projet-red_ZELDA/player"
 )
+
 func clear() {
 	fmt.Print("\033[H\033[2J")
 }
@@ -14,6 +15,11 @@ func clear() {
 func main() {
 	// Create the player
 	p := player.CreatePlayer()
+
+	// Show intro story before starting the game
+	clear()
+	player.ShowIntroLore()
+
 	// Initialize the boss and enemy
 	b := &boss.Boss{}
 	e := &combat.Enemy{}
@@ -32,11 +38,11 @@ func main() {
 		case 1:
 			clear()
 			menu.ShowMenu(&p) // Show the menu
-			
+
 		case 2:
 			clear()
 			combat.StartBattle(&p) // battle against an enemy
-			
+
 		case 3:
 			clear()
 			boss.CreateBoss(b, &p, e) // Fight the boss
