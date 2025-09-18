@@ -19,6 +19,8 @@ type Player struct {
 	Speed     int
 	SwordDmg  int
 	Inventory types.Inventory
+	Mana      int
+	ManaMax   int
 }
 
 // Creates player
@@ -60,6 +62,8 @@ func CreatePlayer() Player {
 		Speed:     speed,
 		SwordDmg:  swordDmg,
 		Inventory: types.Inventory{Items: []types.Item{}, MaxSize: 5},
+		Mana:      20,
+		ManaMax:   40,
 	}
 }
 
