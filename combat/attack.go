@@ -27,6 +27,9 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		damage := p.SwordDmg
 		e.Pv -= damage
 		p.Mana += 10
+		if p.Mana > p.ManaMax {
+			p.Mana = p.ManaMax
+		}
 		if e.Pv < 0 {
 			e.Pv = 0
 		}
