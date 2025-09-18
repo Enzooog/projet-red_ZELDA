@@ -11,8 +11,11 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 	fmt.Println("\n--- your turn ---")
 	fmt.Println("1. sword stroke")
 	fmt.Println("2. magic spell")
-	fmt.Println("3. use a potion")
-	fmt.Println("4. back to menu")
+	if p.Mana >= 20 {
+		fmt.Println("3. fireball (costs 20 mana)")
+	}
+	fmt.Println("4. use a potion")
+	fmt.Println("5. back to menu")
 	fmt.Print("Choice: ")
 
 	var choice int
@@ -23,6 +26,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		// Sword attack
 		damage := p.SwordDmg
 		e.Pv -= damage
+		p.Mana += 10
 		if e.Pv < 0 {
 			e.Pv = 0
 		}
@@ -30,7 +34,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 
 	case 2:
 		// Magic spell attack (damages both enemy and player)
-		damage := p.SwordDmg + 10
+		damage := p.SwordDmg + 5
 		e.Pv -= damage
 		p.Pv -= 5
 		if e.Pv < 0 {
@@ -43,10 +47,18 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		fmt.Printf("Enemy HP: %d/%d | Your HP: %d/%d\n", e.Pv, e.PvMax, p.Pv, p.PvMax)
 
 	case 3:
+		if p.Mana >= 20 {
+			Fireball(p, e)
+			p.Mana -= 20
+		} else {
+			fmt.Println("Not enough mana to cast Fireball.")
+		}
+
+	case 4:
 		// Use a healing potion
 		player.UsePotion(p)
 
-	case 4:
+	case 5:
 		menu.ShowMenu(p) // Open the menu
 	}
 }
@@ -58,4 +70,13 @@ func EnemyAttack(p *player.Player, e *Enemy) {
 		p.Pv = 0
 	}
 	fmt.Printf("%s attacks you: %d damage. Your HP: %d/%d\n", e.Name, e.Damage, p.Pv, p.PvMax)
+}
+
+func Fireball(p *player.Player, e *Enemy) {
+	damage := p.SwordDmg + p.SwordDmg/3
+	e.Pv -= damage
+	if e.Pv < 0 {
+		e.Pv = 0
+	}
+	fmt.Printf("You cast Fireball! %d damage dealt. Enemy HP: %d/%d, Mana: %d/%d\n", damage, e.Pv, e.PvMax, p.Mana, p.ManaMax)
 }
