@@ -3,6 +3,7 @@ package player
 import "fmt"
 
 func IsDead(p *Player) {
+	// If the player dies, they respawn with half their HP and money.
 	if p.Pv <= 0 {
 		p.Pv = p.PvMax / 2
 		fmt.Printf("\n GAME OVER \n")

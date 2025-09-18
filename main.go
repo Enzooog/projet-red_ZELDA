@@ -10,7 +10,9 @@ import (
 )
 
 func main() {
+	// Create the player
 	p := player.CreatePlayer()
+	// Initialize the boss and enemy
 	b := &boss.Boss{}
 	e := &combat.Enemy{}
 
@@ -19,20 +21,20 @@ func main() {
 		fmt.Println("1. Menu")
 		fmt.Println("2. Main quest")
 		fmt.Println("3. Defeat the boss")
-		fmt.Print("Choice : ")
+		fmt.Print("Choice: ")
 
 		var choice int
 		fmt.Scan(&choice)
 
 		switch choice {
 		case 1:
-			menu.ShowMenu(&p)
+			menu.ShowMenu(&p) // Show the menu
 		case 2:
-			combat.StartBattle(&p)
+			combat.StartBattle(&p) // battle against an enemy
 		case 3:
-			boss.CreateBoss(b, &p, e)
+			boss.CreateBoss(b, &p, e) // Fight the boss
 		default:
-			fmt.Println("invalid choice.")
+			fmt.Println("Invalid choice.")
 		}
 	}
 }
