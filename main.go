@@ -13,7 +13,7 @@ func main() {
 	p := player.CreatePlayer()
 	b := &boss.Boss{}
 	e := &combat.Enemy{}
-	
+
 	for {
 		fmt.Println("\n=== ZELDA GAME ===")
 		fmt.Println("1. Menu")
