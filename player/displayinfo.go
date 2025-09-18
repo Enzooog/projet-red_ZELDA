@@ -2,6 +2,7 @@ package player
 
 import "fmt"
 
+// Function to display player information in real time
 func DisplayInfo(p Player) {
 	fmt.Println("\n=== STATS DU JOUEUR ===")
 	fmt.Printf("Name : %s\n", p.Name)

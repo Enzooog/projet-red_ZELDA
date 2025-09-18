@@ -4,20 +4,20 @@ import (
 	"fmt"
 
 	"projet-red_ZELDA/player"
-	"projet-red_ZELDA/types"
 )
 
+// menu display
 func Merchant(p *player.Player) {
-	fmt.Println("\n--- MARCHAND FARAS ---")
-	fmt.Printf("Bonjour ! Vos roupies : %d\n", p.Money)
-	fmt.Println("1. Sheikah armor (50 roupies) - Stealth")
-	fmt.Println("2. Stone armor (50 roupies) - +20 PV")
-	fmt.Println("3. Bird armor (50 roupies) - +10 speed")
-	fmt.Println("4. Green potion (15 roupies) - Treat 30 PV")
-	fmt.Println("5. Red potion  (20 roupies) - Enemy poison")
-	fmt.Println("6. bag (40 roupies) - +5 inventory slots")
-	fmt.Println("7. back")
-	fmt.Print("Choice : ")
+	fmt.Println("\n--- FARAS MERCHANT ---")
+	fmt.Printf("Hello! Your rupees: %d\n", p.Money)
+	fmt.Println("1. Sheikah armor (50 rupees) - Stealth")
+	fmt.Println("2. Stone armor (50 rupees) - +20 HP")
+	fmt.Println("3. Bird armor (50 rupees) - +10 speed")
+	fmt.Println("4. Green potion (15 rupees) - Heals 30 HP")
+	fmt.Println("5. Red potion  (20 rupees) - Enemy poison")
+	fmt.Println("6. Bag (40 rupees) - +5 inventory slots")
+	fmt.Println("7. Back")
+	fmt.Print("Choice: ")
 
 	var choice int
 	fmt.Scan(&choice)
@@ -42,13 +42,13 @@ func Merchant(p *player.Player) {
 	}
 }
 
-func buyGreenPotion(p *player.Player) {
-	if p.Money >= 15 {
-		item := types.Item{Name: "green potion", Type: "potion", BonusType: "heal", Bonus: 30}
-		if p.Inventory.AddItem(item) {
-			p.Money -= 15
-		}
+// Buy a bag to increase inventory capacity
+func buyBag(p *player.Player) {
+	if p.Money >= 40 {
+		p.Money -= 40
+		p.Inventory.MaxSize += 5
+		fmt.Printf("Bag purchased! Inventory size: %d\n", p.Inventory.MaxSize)
 	} else {
-		fmt.Println("Not enough money")
+		fmt.Println("Not enough money.")
 	}
 }
