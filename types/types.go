@@ -3,12 +3,12 @@ package types
 import "fmt"
 
 type Item struct {
-	Name      string
-	Type      string
-	BonusType string
-	Bonus     int
+	Name       string
+	Type       string
+	BonusType  string
+	Bonus      int
 	IsEquipped bool
-	Quantity  int
+	Quantity   int
 }
 
 type Inventory struct {
@@ -19,7 +19,7 @@ type Inventory struct {
 func (inv *Inventory) AddItem(item Item) bool {
 	item.IsEquipped = false
 	item.Quantity = 1
-	
+
 	// Stack les potions
 	if item.Type == "potion" {
 		for i := range inv.Items {
@@ -30,7 +30,7 @@ func (inv *Inventory) AddItem(item Item) bool {
 			}
 		}
 	}
-	
+
 	if len(inv.Items) >= inv.MaxSize {
 		fmt.Println("Full inventory !")
 		return false
