@@ -2,6 +2,7 @@ package player
 
 import "fmt"
 
+// function for level crossing
 func GainXP(p *Player) {
 	for p.XP >= p.Level*100 {
 		p.XP -= p.Level * 100
