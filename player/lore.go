@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// story of the game
 func ShowIntroLore() {
 	lore := []string{
 		"A hundred years ago, the kingdom of Hyrule was consumed by darkness.",
@@ -19,6 +20,6 @@ func ShowIntroLore() {
 
 	for _, line := range lore {
 		fmt.Println(line)
-		time.Sleep(4 * time.Second) // Attente de 4 secondes entre chaque ligne
+		time.Sleep(4 * time.Second) // Wait 4 seconds between each line
 	}
 }
