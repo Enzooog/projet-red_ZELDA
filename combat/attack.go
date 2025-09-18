@@ -2,7 +2,7 @@ package combat
 
 import (
 	"fmt"
-
+	"projet-red_ZELDA/menu"
 	"projet-red_ZELDA/player"
 )
 
@@ -12,6 +12,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 	fmt.Println("1. sword stroke")
 	fmt.Println("2. magic spell")
 	fmt.Println("3. use a potion")
+	fmt.Println("4. back to menu")
 	fmt.Print("Choice: ")
 
 	var choice int
@@ -44,6 +45,9 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 	case 3:
 		// Use a healing potion
 		player.UsePotion(p)
+
+	case 4:
+		menu.ShowMenu(p) // Open the menu
 	}
 }
 
