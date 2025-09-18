@@ -50,6 +50,7 @@ func PlayerTurn(p *player.Player, e *Enemy) {
 		fmt.Printf("Enemy HP: %d/%d | Your HP: %d/%d\n", e.Pv, e.PvMax, p.Pv, p.PvMax)
 
 	case 3:
+		// Fireball spell attack
 		if p.Mana >= 20 {
 			Fireball(p, e)
 			p.Mana -= 20
@@ -75,6 +76,7 @@ func EnemyAttack(p *player.Player, e *Enemy) {
 	fmt.Printf("%s attacks you: %d damage. Your HP: %d/%d\n", e.Name, e.Damage, p.Pv, p.PvMax)
 }
 
+// Fireball attack
 func Fireball(p *player.Player, e *Enemy) {
 	damage := p.SwordDmg + p.SwordDmg/3
 	e.Pv -= damage
