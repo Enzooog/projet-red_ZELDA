@@ -13,11 +13,15 @@ func ConfirmExit() bool {
 
 	var choice int
 	fmt.Scan(&choice)
-
-	if choice == 1 {
+  switch choice{
+  case 1:
 		fmt.Println("Goodbye and thank you for playing. !")
 		os.Exit(0)
 		return true
+	case 2:
+		return false
+	default:
+		fmt.Println("Invalid choice.")
 	}
 	return false
 }

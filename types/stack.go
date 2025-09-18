@@ -7,7 +7,7 @@ func (inv *Inventory) ShowInventory() {
 		fmt.Println("Inventaire vide.")
 		return
 	}
-	
+
 	fmt.Printf("Inventaire (%d/%d) :\n", len(inv.Items), inv.MaxSize)
 	for i, item := range inv.Items {
 		equipped := ""

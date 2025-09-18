@@ -24,7 +24,7 @@ func CreatePlayer() Player {
 	var name, classe string
 	pv, speed, swordDmg := 100, 10, 15
 
-	fmt.Println("Welcome to Zelda")
+	fmt.Println("WELCOME TO ZELDA")
 	time.Sleep(1 * time.Second)
 	fmt.Print("Enter your name : ")
 	fmt.Scan(&name)
@@ -49,9 +49,7 @@ func CreatePlayer() Player {
 	}
 
 	return Player{
-		Name: name, Level: 1, Classe: classe, PvMax: pv, Pv: pv,
-		Money: 100, Speed: speed, SwordDmg: swordDmg,
-		Inventory: types.Inventory{Items: []types.Item{}, MaxSize: 5},
+		Name: name, Level: 1, Classe: classe, PvMax: pv, Pv: pv, Money: 100, Speed: speed, SwordDmg: swordDmg, Inventory: types.Inventory{Items: []types.Item{}, MaxSize: 5},
 	}
 }
 

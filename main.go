@@ -17,7 +17,7 @@ func main() {
 	for {
 		fmt.Println("\n=== ZELDA GAME ===")
 		fmt.Println("1. Menu")
-		fmt.Println("2.  Main quest")
+		fmt.Println("2. Main quest")
 		fmt.Println("3. Defeat the boss")
 		fmt.Print("Choice : ")
 
