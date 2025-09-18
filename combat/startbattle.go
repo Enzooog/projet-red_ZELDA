@@ -42,6 +42,9 @@ func StartBattle(p *player.Player) {
 	if enemy.Pv <= 0 {
 		fmt.Println("Victory! You win 30 rupees!")
 		p.Money += 30 // Reward
+		p.XP += 50
+		fmt.Printf("You gained 50 XP! Total XP: %d\n", p.XP)
+		player.GainXP(p)
 	} else {
 		player.IsDead(p) // Player is dead
 	}
