@@ -21,6 +21,7 @@ type Player struct {
 	Inventory types.Inventory
 	Mana      int
 	ManaMax   int
+	XP        int
 }
 
 // Creates player
@@ -64,6 +65,7 @@ func CreatePlayer() Player {
 		Inventory: types.Inventory{Items: []types.Item{}, MaxSize: 5},
 		Mana:      20,
 		ManaMax:   40,
+		XP:        0,
 	}
 }
 
